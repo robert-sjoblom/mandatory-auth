@@ -1,0 +1,15 @@
+<div class="container">
+  <p *ngIf="error" class="error">Login credentials were incorrect!</p>
+
+  <form *ngIf="!user" action="" class="form-group">
+    <input type="text" #username id="username">
+    <input type="text" #password id="password">
+    <button (click)="login(username.value, password.value)">Login</button>
+  </form>
+
+  <div *ngIf="user">
+    <p> Welcome, {{ user }} </p>
+    <button (click)="logout()">Logout</button>
+  </div>
+  <button (click)="testApi()">Test API</button>
+</div>
