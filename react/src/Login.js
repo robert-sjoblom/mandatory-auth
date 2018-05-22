@@ -7,17 +7,27 @@ class Login extends Component {
     };
 
     onChange = e => {
+        this.setState({
+            [e.target.id]: e.target.value
+        });
         // update the component state with a change to either the username or password.
     };
 
     onSubmit = e => {
         e.preventDefault();
-
-        // calls the passed callback from the parent <App> component.
-        this.props.onLogin(e.target.username.value, e.target.password.value);
+        this.props.onLogin(this.state);
     }
 
     render() {
+        return (
+            <div>
+                <form>
+                    <input type="text" id="username" name="username" onChange={this.onChange} />
+                    <input type="text" id="password" name="password" onChange={this.onChange} />
+                    <button onClick={this.onSubmit}>Login</button>
+                </form>
+            </div>
+        );
         // render a login form and perform manual validation.
     }
 };
