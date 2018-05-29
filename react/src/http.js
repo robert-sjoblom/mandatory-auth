@@ -43,6 +43,16 @@ mock.onGet('/api/friends').reply(config => {
         response = [401, { error: 'Unauthorized access token' }]
     } else {
         response = [400, { error: 'No authorization header' }]
+        
+        /*
+        400 is bad request, request was incorrectly formatted.
+        everything in 400 range is client error.
+        401 is unauthorized but the request was correctly formatted.
+        error codes are important, only way to tell what happens.
+        expects proper error code usage.
+        
+        500 range is server-side errors of various kinds.        
+        */
     }
     return response;
 });
