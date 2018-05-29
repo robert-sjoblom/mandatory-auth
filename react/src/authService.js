@@ -47,6 +47,9 @@ class AuthService {
                 localStorage.setItem('user', JSON.stringify(this.user));
                 localStorage.setItem('token', JSON.stringify(this.token));
                 return this.user;
+//             better:
+//             localStorage.setItem('user', token)
+//             token contains all info we need, we can decode it later.
             })
             .catch(err => {
                 return this.handleError(err)
