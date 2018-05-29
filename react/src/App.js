@@ -52,7 +52,7 @@ class App extends Component {
         const loginForm = (!user)
             ? <Login onLogin={this.login} />
             : null;
-
+        // const loginForm = user && <Login onLogin={this.login} />
         return (
             <div className="container">
                 {/* {(error) ? <Error error={error} /> : null} */}
